@@ -1,6 +1,7 @@
 package org.example;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
+import java.util.Map;
 
 public class PlayerProfile {
     public Summary summary;
@@ -13,9 +14,6 @@ class Summary {
     public String title;
     public Endorsement endorsement;
     public Competitive competitive;
-
-    @JsonProperty("last_updated_at")
-    public long lastUpdatedAt;
 }
 
 class Endorsement {
@@ -25,15 +23,12 @@ class Endorsement {
 
 class Competitive {
     public CompetitiveData pc;
-    public CompetitiveData console;  // může být null
 }
 
 class CompetitiveData {
     public Rank tank;
     public Rank damage;
     public Rank support;
-    public Rank open;  // může být null
-    public int season;
 }
 
 class Rank {
@@ -45,7 +40,4 @@ class Rank {
 
     @JsonProperty("rank_icon")
     public String rankIcon;
-
-    @JsonProperty("tier_icon")
-    public String tierIcon;
 }
